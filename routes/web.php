@@ -13,4 +13,5 @@ Route::post('newgenre', [MufajController::class,'store'])->name('new.genre');
 Route::get('/new-book', [bookController::class, 'create'])->name('konyv.create');
 Route::post('newbook',[bookController::class, 'store'])->name('book.store');
 Route::get('/books', [bookController::class,'index'])->name('book.index');
-Route::get('/delete{id}', [bookController::class,'delete'])->name('delete_book');
+Route::delete('/delete/{id}', [bookController::class,'destroy'])->name('delete_book');
+Route::post('/books/{id}',[bookController::class, 'kolcsonzes'])->name('kolcsonzes');

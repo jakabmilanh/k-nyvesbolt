@@ -14,7 +14,13 @@
             <form action="{{ route('delete_book',$book->id)}}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button class="btn btn-primary">Vásárlás</button>
+                <input type="hidden" value="{{$book->id}}" name="book_id">
+                <button class="btn btn-primary">Törlés</button>
+            </form>
+            <form action="{{ route('kolcsonzes',$book->id)}}" method="POST">
+                @csrf
+                <input type="hidden" value="{{$book->id}}">
+                <button class="btn btn-primary">kölcsönzés</button>
             </form>
         </li>
     @endforeach

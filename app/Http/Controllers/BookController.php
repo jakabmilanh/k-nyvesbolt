@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Mufaj;
 use App\Models\book;
+use App\Http\Controllers\DB;
 use Illuminate\Http\Request;
 use App\Http\Requests\StorebookRequest;
 use App\Http\Requests\UpdatebookRequest;
@@ -25,6 +26,11 @@ class BookController extends Controller
     public function create(){
         $mufajs = Mufaj::all();
         return view('konyv.create',compact('mufajs'));
+   }
+
+   public function kolcsonzes(Request $request)
+   {
+       
    }
 
     /**
@@ -78,8 +84,13 @@ class BookController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(book $book)
+    public function destroy(Request $request)
     {
-        //
+        $deleted = DB::table('books')->where("id" == $request->book_id)->delete();
+        if($deleted > 0){
+            return redirect()->route('book.index')->with('success','Sikeres törlés');
+        }else{
+            return redirect()->back()->with('error','Hiba lépett fel.');
+        }
     }
 }
