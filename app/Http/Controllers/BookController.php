@@ -30,7 +30,9 @@ class BookController extends Controller
 
    public function kolcsonzes(Request $request)
    {
-       
+    $book = $request;
+    return view('konyv.konyv', compact('book'));
+
    }
 
     /**

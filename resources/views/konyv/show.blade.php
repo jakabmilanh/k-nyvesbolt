@@ -19,7 +19,10 @@
             </form>
             <form action="{{ route('kolcsonzes',$book->id)}}" method="POST">
                 @csrf
-                <input type="hidden" value="{{$book->id}}">
+                <input type="hidden" value="{{$book->id}}" name="book_id">
+                <input type="hidden" value="{{$book->szerzo}}" name="book_szerzo">
+                <input type="hidden" value="{{$book->cim}}" name="book_cim">
+                <input type="hidden" value="{{$book->kiadas_eve}}" name="book_ev">
                 <button class="btn btn-primary">kölcsönzés</button>
             </form>
         </li>
