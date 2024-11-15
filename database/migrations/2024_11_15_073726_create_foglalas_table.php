@@ -12,13 +12,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('books', function (Blueprint $table) {
+        Schema::create('foglalas', function (Blueprint $table) {
             $table->id("id")->primary()->autoIncrement();
-            $table->timestamps();
-            $table->string('cim');
-            $table->string('szerzo');
-            $table->foreignId('mufaj_id');
-            $table->integer('kiadas_eve');
+            $table->foreignId('konyv_id');
+            $table->date("kolcsonzes_start");
+            $table->date('kolcsonzes_end');
         });
     }
 
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('books');
+        Schema::dropIfExists('foglalas');
     }
 };
