@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mufaj;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreMufajRequest;
 use App\Http\Requests\UpdateMufajRequest;
 
