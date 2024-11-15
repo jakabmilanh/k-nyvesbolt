@@ -13,24 +13,24 @@ class MufajController extends Controller
      */
     public function index()
     {
-        //
+        return view('mufaj.create');
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function store(Request $request)
     {
-        //
+        $mufaj = new Mufaj();
+        $mufaj->nev = $request->name;
+        if($mufaj->save()){
+            return redirect()->route('mufaj.index')->with('success','Sikeres rögzítés');
+        }else{
+            return redirect()->back()->with('error','Hiba llépett fel.');
+        }
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreMufajRequest $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
