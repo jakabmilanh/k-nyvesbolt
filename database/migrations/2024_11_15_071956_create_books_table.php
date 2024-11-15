@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('szerzo');
             $table->foreignId('mufaj_id');
             $table->integer('kiadas_eve');
+            $table->softDeletes();
+         //   $table->foreign('mufaj_id')->references('id')->on('mufajs')->onDelete('cascade');
         });
     }
 

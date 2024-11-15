@@ -17,6 +17,8 @@ return new class extends Migration
             $table->foreignId('konyv_id');
             $table->date("kolcsonzes_start");
             $table->date('kolcsonzes_end');
+            $table->softDeletes();
+          //  $table->foreign('konyv_id')->references('id')->on('books')->onDelete('cascade');
         });
     }
 

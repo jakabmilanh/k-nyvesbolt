@@ -24,6 +24,9 @@ class MufajController extends Controller
     {
         $mufaj = new Mufaj();
         $mufaj->nev = $request->name;
+        $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
         if($mufaj->save()){
             return redirect()->route('mufaj.index')->with('success','Sikeres rögzítés');
         }else{

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('mufajs', function (Blueprint $table) {
             $table->id("id")->primary()->autoIncrement();;
             $table->timestamps();
+            $table->softDeletes();
             $table->string('nev');
         });
     }
